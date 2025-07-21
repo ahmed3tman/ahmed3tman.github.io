@@ -6,45 +6,70 @@ body {
   margin: 0;
   padding: 0;
   direction: rtl;
+  line-height: 1.6;
 }
 
-/* الحاوية العامة */
+/* ========== تجاوب عام لكل العناصر الأساسية ========== */
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
-/* رأس الصفحة */
+/* ========== الهيدر والقائمة ========== */
 .header {
   background: #fff;
-  box-shadow: 0 2px 8px #0001;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
+  padding: 10px 0;
 }
+
 .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.2rem 0;
+  flex-wrap: wrap;
+  gap: 15px;
 }
+
 .logo {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: bold;
   color: #0a6cf1;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .nav a {
   color: #222;
   text-decoration: none;
-  margin: 0 1rem;
   font-weight: 500;
   transition: color 0.2s;
+  padding: 5px 10px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
+
 .nav a:hover {
   color: #0a6cf1;
 }
+
 .btn {
   background: #0a6cf1;
   color: #fff;
@@ -53,121 +78,140 @@ body {
   border: none;
   font-weight: bold;
   text-decoration: none;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px #0a6cf13a;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(10, 108, 241, 0.23);
   cursor: pointer;
-}
-.btn:hover {
-  background: #084b9a;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  white-space: nowrap;
 }
 
-/* قسم التعريف والشخصية */
+.btn:hover {
+  background: #084b9a;
+  transform: translateY(-2px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #0a6cf1;
+}
+
+/* ========== قسم التعريف والشخصية ========== */
 .profile-section {
   background: linear-gradient(120deg, #e3f0ff 0%, #f7f8fa 100%);
-  padding: 3rem 0 2rem 0;
+  padding: 3rem 0;
 }
+
 .profile-content {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 2.5rem;
+  justify-content: center;
 }
+
 .profile-img {
-  flex: 0 0 180px;
-  width: 180px;
-  height: 180px;
+  width: clamp(120px, 30vw, 180px);
+  height: clamp(120px, 30vw, 180px);
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 4px 24px #0a6cf13a;
+  box-shadow: 0 4px 24px rgba(10, 108, 241, 0.23);
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
+
 .profile-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .profile-info {
   flex: 1;
+  min-width: 300px;
 }
+
 .profile-title {
   color: #0a6cf1;
   font-weight: bold;
   margin: 0.5rem 0 1rem 0;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
+
 .profile-desc {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   margin-bottom: 1.2rem;
 }
+
 .profile-details {
   list-style: none;
   padding: 0;
   margin: 0 0 1.2rem 0;
 }
+
 .profile-details li {
   margin-bottom: 0.4rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
+
 .social-links {
   display: flex;
   gap: 0.7rem;
+  flex-wrap: wrap;
 }
+
 .social-links a {
   display: inline-block;
   width: 36px;
   height: 36px;
-  border-radius: 0;
-  box-shadow: none;
-  border: none;
-  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.3s;
 }
-.social-links a:hover {
-  background: none;
-  box-shadow: none;
-  border: none;
-}
-.social-links a:hover img {
-  transform: scale(1.25);
-}
-.social-links i {
-  font-size: 22px;
-  transition: color 0.2s;
-}
+
 .social-links img {
   width: 30px;
   height: 30px;
   object-fit: contain;
-  box-shadow: none;
-  border: none;
-  background: none;
-  transition: transform 0.2s;
+  transition: transform 0.3s;
 }
 
-/* الأقسام العامة */
-.section {
-  padding: 3rem 0 2rem 0;
+.social-links a:hover img {
+  transform: scale(1.25);
 }
+
+/* ========== الأقسام العامة ========== */
+.section {
+  padding: 3rem 0;
+}
+
 .section h2 {
   color: #0a6cf1;
   margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   text-align: center;
 }
 
-/* الخط الزمني للتعليم */
+/* ========== الخط الزمني للتعليم ========== */
 .timeline {
   border-right: 3px solid #0a6cf1;
   margin-right: 1.5rem;
   padding-right: 1.5rem;
+  position: relative;
 }
+
 .timeline-item {
   margin-bottom: 1.5rem;
   position: relative;
 }
+
 .timeline-item:before {
   content: "";
   position: absolute;
@@ -178,242 +222,303 @@ body {
   background: #0a6cf1;
   border-radius: 50%;
   border: 3px solid #fff;
-  box-shadow: 0 2px 8px #0a6cf13a;
+  box-shadow: 0 2px 8px rgba(10, 108, 241, 0.23);
 }
 
-/* الخبرات العملية */
-.experience-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
+.timeline-item h3 {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  margin-bottom: 0.5rem;
 }
+
+.timeline-item p {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* ========== الخبرات العملية والكروت ========== */
+.experience-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
 .exp-card {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 2px 16px #0a6cf11a;
-  padding: 1.5rem 1.2rem;
-  min-width: 260px;
-  max-width: 340px;
-  flex: 1 1 300px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 16px rgba(10, 108, 241, 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
 }
+
 .exp-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 8px 32px #0a6cf13a;
+  transform: translateY(-6px);
+  box-shadow: 0 8px 32px rgba(10, 108, 241, 0.23);
 }
+
 .exp-card h3 {
   color: #0a6cf1;
   margin-bottom: 0.7rem;
-}
-.exp-card ul {
-  padding-right: 1.2rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
 }
 
-/* المهارات */
-.skills-grid {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
+.exp-card ul {
+  padding-right: 1.2rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
+
+.exp-card li {
+  margin-bottom: 0.5rem;
+}
+
+/* ========== المهارات ========== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
 .skill-group {
   background: #fff;
   border-radius: 14px;
-  box-shadow: 0 2px 12px #0a6cf11a;
+  box-shadow: 0 2px 12px rgba(10, 108, 241, 0.1);
   padding: 1.2rem 1.5rem;
-  min-width: 220px;
-  flex: 1 1 220px;
 }
+
 .skill-group h3 {
   color: #0a6cf1;
   margin-bottom: 0.7rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
 }
 
-/* الخدمات */
-.services-grid {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
+.skill-group ul {
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
+
+/* ========== الخدمات ========== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
 .service-card {
   background: #fff;
   border-radius: 14px;
-  box-shadow: 0 2px 12px #0a6cf11a;
+  box-shadow: 0 2px 12px rgba(10, 108, 241, 0.1);
   padding: 1.2rem 1.5rem;
-  min-width: 220px;
-  flex: 1 1 220px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.service-card:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 8px 32px #0a6cf13a;
+  transition: all 0.3s ease;
 }
 
-/* المشاريع */
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 32px rgba(10, 108, 241, 0.23);
+}
+
+.service-card h3 {
+  color: #0a6cf1;
+  margin-bottom: 0.7rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+
+.service-card p {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* ========== المشاريع ========== */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
+
 .project-card {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 2px 16px #0a6cf11a;
+  box-shadow: 0 2px 16px rgba(10, 108, 241, 0.1);
   overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: flex;
-  flex-direction: column;
+  transition: all 0.3s ease;
 }
+
 .project-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 8px 32px #0a6cf13a;
+  transform: translateY(-6px);
+  box-shadow: 0 8px 32px rgba(10, 108, 241, 0.23);
 }
+
 .project-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   background: #e3f0ff;
 }
+
 .project-info {
   padding: 1rem 1.2rem;
 }
+
+.project-info h3 {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  margin-bottom: 0.5rem;
+}
+
+.project-info p {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  margin-bottom: 0.5rem;
+}
+
 .project-link {
   color: #0a6cf1;
   text-decoration: underline;
   font-weight: bold;
   transition: color 0.2s;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
+
 .project-link:hover {
   color: #084b9a;
 }
 
-/* التواصل */
+/* ========== قسم التواصل ========== */
 .contact-section .contact-info {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
   margin-top: 1.5rem;
 }
 
-/* الفوتر */
+/* ========== الفوتر ========== */
 .footer {
   background: #0a6cf1;
   color: #fff;
   text-align: center;
-  padding: 1.2rem 0 0.7rem 0;
+  padding: 1.2rem 0;
   margin-top: 2rem;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
-/* الوضع الداكن */
+/* ========== قسم الفن ========== */
+.art-section {
+  padding: 3rem 0;
+  background: linear-gradient(120deg, #f7f8fa 60%, #e3f0ff 100%);
+}
+
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.art-grid img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(10, 108, 241, 0.23);
+  transition: all 0.3s ease;
+}
+
+.art-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 32px rgba(10, 108, 241, 0.3);
+}
+
+.art-link {
+  text-align: center;
+}
+
+/* ========== الوضع الداكن ========== */
 body.dark-mode {
   background: #181c24;
   color: #f1f1f1;
 }
+
 body.dark-mode .header {
   background: #23272f;
-  box-shadow: 0 2px 8px #0005;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
+
 body.dark-mode .logo {
   color: #4eaaff;
 }
+
 body.dark-mode .nav a {
   color: #f1f1f1;
 }
+
 body.dark-mode .nav a:hover {
   color: #4eaaff;
 }
+
 body.dark-mode .btn {
   background: #4eaaff;
   color: #181c24;
-  box-shadow: 0 2px 8px #4eaaff3a;
+  box-shadow: 0 2px 8px rgba(78, 170, 255, 0.23);
 }
+
 body.dark-mode .btn:hover {
   background: #1b6bb8;
   color: #fff;
 }
+
 body.dark-mode .profile-section {
   background: linear-gradient(120deg, #23272f 0%, #181c24 100%);
 }
+
 body.dark-mode .profile-img {
   background: #23272f;
-  box-shadow: 0 4px 24px #4eaaff2a;
+  box-shadow: 0 4px 24px rgba(78, 170, 255, 0.16);
 }
+
 body.dark-mode .profile-title {
   color: #4eaaff;
 }
-body.dark-mode .social-links a {
-  background: #23272f;
-  box-shadow: 0 2px 8px #4eaaff2a;
-}
-body.dark-mode .social-links a:hover {
-  box-shadow: 0 6px 16px #4eaaff4a;
-}
-body.dark-mode .section,
-body.dark-mode .art-section {
-  background: transparent;
-}
+
 body.dark-mode .section h2,
 body.dark-mode .exp-card h3,
-body.dark-mode .skill-group h3 {
+body.dark-mode .skill-group h3,
+body.dark-mode .service-card h3,
+body.dark-mode .art-section h2 {
   color: #4eaaff;
 }
+
 body.dark-mode .timeline {
   border-right: 3px solid #4eaaff;
 }
+
 body.dark-mode .timeline-item:before {
   background: #4eaaff;
 }
+
 body.dark-mode .exp-card,
 body.dark-mode .skill-group,
 body.dark-mode .service-card,
 body.dark-mode .project-card {
   background: #23272f;
-  box-shadow: 0 2px 16px #4eaaff1a;
+  box-shadow: 0 2px 16px rgba(78, 170, 255, 0.1);
   color: #f1f1f1;
 }
+
 body.dark-mode .project-link {
   color: #4eaaff;
 }
+
 body.dark-mode .project-link:hover {
   color: #1b6bb8;
 }
+
 body.dark-mode .footer {
   background: #23272f;
   color: #4eaaff;
 }
-body.dark-mode .art-section h2 {
-  color: #4eaaff;
-}
-body.dark-mode .art-link .btn {
-  background: #4eaaff;
-  color: #181c24;
-  box-shadow: 0 2px 8px #4eaaff3a;
-}
-body.dark-mode .art-link .btn:hover {
-  background: #1b6bb8;
-  color: #fff;
-}
+
 body.dark-mode .art-grid img {
   background: #23272f;
-  box-shadow: 0 4px 24px #4eaaff2a;
-  border: 2px solid #4eaaff22;
-}
-body.dark-mode .contact-section {
-  background: transparent;
-}
-body.dark-mode .contact-info .btn {
-  background: #4eaaff;
-  color: #181c24;
-}
-body.dark-mode .contact-info .btn:hover {
-  background: #1b6bb8;
-  color: #fff;
+  box-shadow: 0 4px 24px rgba(78, 170, 255, 0.16);
+  border: 2px solid rgba(78, 170, 255, 0.13);
 }
 
-/* تحسينات للغة الإنجليزية */
+/* ========== تحسينات للغة الإنجليزية ========== */
 html[lang="en"] body,
 html[lang="en"] .profile-info,
 html[lang="en"] .profile-title,
@@ -421,47 +526,36 @@ html[lang="en"] .profile-desc,
 html[lang="en"] h1,
 html[lang="en"] h2,
 html[lang="en"] h3,
-html[lang="en"] ul,
-html[lang="en"] ol,
-html[lang="en"] li,
 html[lang="en"] .section,
 html[lang="en"] .exp-card,
 html[lang="en"] .skill-group,
 html[lang="en"] .service-card,
 html[lang="en"] .project-info,
 html[lang="en"] .footer {
-  text-align: left !important;
+  text-align: left;
+  direction: ltr;
 }
+
 html[lang="en"] .profile-details,
 html[lang="en"] .exp-card ul {
   padding-right: 0;
   padding-left: 1.2rem;
 }
+
 html[lang="en"] ul,
 html[lang="en"] ol {
-  text-align: left !important;
-  direction: ltr !important;
-  padding-left: 1.5rem !important;
-  padding-right: 0 !important;
+  text-align: left;
+  direction: ltr;
+  padding-left: 1.5rem;
+  padding-right: 0;
   margin-left: 0;
 }
+
 html[lang="en"] li {
-  text-align: left !important;
-  direction: ltr !important;
-  line-height: 1.7;
+  text-align: left;
+  direction: ltr;
 }
-html[lang="en"] .exp-card,
-html[lang="en"] .skill-group,
-html[lang="en"] .service-card,
-html[lang="en"] .project-info {
-  direction: ltr !important;
-  text-align: left !important;
-}
-html[lang="en"] .exp-card ul,
-html[lang="en"] .skill-group ul {
-  padding-left: 1.5rem !important;
-  padding-right: 0 !important;
-}
+
 html[lang="en"] .timeline {
   border-left: 3px solid #0a6cf1;
   border-right: none;
@@ -470,133 +564,127 @@ html[lang="en"] .timeline {
   padding-left: 1.5rem;
   padding-right: 0;
 }
+
 html[lang="en"] .timeline-item:before {
   left: -2.1rem;
   right: auto;
 }
-html[lang="en"] .header-content {
-  flex-direction: row-reverse !important;
-  justify-content: flex-start !important;
-  align-items: center !important;
-}
-html[lang="en"] .logo {
-  margin-left: auto !important;
-  margin-right: 0 !important;
-  text-align: left !important;
-}
-html[lang="en"] .nav {
-  margin-left: 2rem !important;
-  margin-right: 0 !important;
-}
-html[lang="en"] .header-content .btn {
-  margin-left: 10px !important;
-  margin-right: 0 !important;
-}
-@media (max-width: 900px) {
-  html[lang="en"] .profile-content,
-  html[lang="en"] .header-content {
-    flex-direction: column !important;
-    align-items: flex-end;
+
+/* ========== تجاوب الموقع ========== */
+@media (max-width: 992px) {
+  .header-content {
+    gap: 10px;
+    padding: 10px 0;
+  }
+  
+  .nav {
+    order: 1;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 10px;
+    order: 2;
   }
 }
 
-/* تجاوب الموقع */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .profile-content {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
+    text-align: center;
   }
-  .header-content {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-@media (max-width: 600px) {
-  .container {
-    width: 98%;
-    padding: 0 0.5rem;
-  }
+  
   .profile-img {
-    width: 120px;
-    height: 120px;
+    margin: 0 auto 20px;
   }
-  .section {
-    padding: 2rem 0 1rem 0;
+  
+  .profile-details {
+    text-align: right;
   }
-  .footer {
-    font-size: 0.9rem;
+  
+  html[lang="en"] .profile-details {
+    text-align: left;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .nav {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    z-index: 99;
+    flex-direction: column;
+  }
+  
+  .nav.active {
+    display: flex;
+  }
+  
+  body.dark-mode .nav {
+    background: #23272f;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  }
+  
+  .experience-list,
+  .skills-grid,
+  .services-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-/* قسم الفن */
-.art-section {
-  padding: 3rem 0 2rem 0;
-  background: linear-gradient(120deg, #f7f8fa 60%, #e3f0ff 100%);
-}
-.art-section h2 {
-  text-align: center;
-  color: #0a6cf1;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-}
-.art-gallery {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.art-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.7rem;
-  width: 100%;
-  max-width: 1100px;
-  margin-bottom: 2rem;
-}
-.art-grid img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px #0a6cf13a;
-  transition: transform 0.3s, box-shadow 0.3s;
-  background: #fff;
-}
-.art-grid img:hover {
-  transform: scale(1.06) rotate(-2deg);
-  box-shadow: 0 8px 32px #0a6cf14a;
-  z-index: 2;
-}
-.art-link {
-  text-align: center;
-}
-.art-link .btn {
-  background: #0a6cf1;
-  color: #fff;
-  font-size: 1.1rem;
-  padding: 0.7rem 2.2rem;
-  border-radius: 30px;
-  box-shadow: 0 2px 8px #0a6cf13a;
-  margin-top: 1rem;
-}
-.art-link .btn:hover {
-  background: #084b9a;
-}
-@media (max-width: 900px) {
-  .art-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+@media (max-width: 576px) {
+  .container {
+    padding: 0 10px;
   }
-  .art-grid img {
-    height: 160px;
+  
+  .section {
+    padding: 2rem 0;
   }
-}
-@media (max-width: 600px) {
+  
   .art-grid {
     grid-template-columns: 1fr;
-    gap: 0.7rem;
   }
+  
   .art-grid img {
-    height: 110px;
+    height: 200px;
+  }
+  
+  .contact-section .contact-info {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* تحسينات للشاشات الصغيرة جدًا */
+@media (max-width: 400px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .project-card img {
+    height: 150px;
+  }
+  
+  .art-grid img {
+    height: 150px;
   }
 }
