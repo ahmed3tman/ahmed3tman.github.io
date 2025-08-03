@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="بورتفوليو احترافي متحرك لأحمد عتمان - مهندس طب حيوي ومطور تطبيقات Flutter وصانع محتوى وفنان."
+      content="A professional animated portfolio for Ahmed Etman - a biomedical engineer, Flutter developer, content creator, and artist."
     />
     <title>Ahmed Etman | Portfolio</title>
     <link rel="stylesheet" href="style.css" />
@@ -19,20 +19,17 @@
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Font Awesome CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
   </head>
   <body>
+    <div class="nav-overlay" id="nav-overlay"></div>
     <header class="header" data-aos="fade-down">
       <div class="container header-content">
         <div class="logo">
           <span class="tr-ar">أحمد عتمان</span>
           <span class="tr-en" style="display: none">Ahmed Etman</span>
         </div>
-        <nav class="nav">
+
+        <nav class="nav" id="main-nav">
           <a href="#about" class="tr-ar">عنّي</a>
           <a href="#about" class="tr-en" style="display: none">About</a>
           <a href="#education" class="tr-ar">التعليم</a>
@@ -47,29 +44,31 @@
           <a href="#services" class="tr-en" style="display: none">Services</a>
           <a href="#projects" class="tr-ar">المشاريع</a>
           <a href="#projects" class="tr-en" style="display: none">Projects</a>
+          <a href="#art" class="tr-ar">الفن</a>
+          <a href="#art" class="tr-en" style="display: none">Art</a>
           <a href="#contact" class="tr-ar">تواصل</a>
           <a href="#contact" class="tr-en" style="display: none">Contact</a>
         </nav>
-        <a href="assets/cv/Ahmed3tmanCV.pdf" class="btn tr-ar" download
-          >تحميل السيرة الذاتية</a
-        >
-        <a
-          href="assets/cv/Ahmed3tmanCV.pdf"
-          class="btn tr-en"
-          download
-          style="display: none"
-          >Download Resume</a
-        >
-        <button id="lang-toggle" class="btn" style="margin-right: 10px">
-          AR
-        </button>
-        <button id="theme-toggle" class="btn" style="margin-right: 10px">
-          🌙
-        </button>
+
+        <div class="header-actions">
+          <a href="assets/cv/Ahmed3tmanCV.pdf" class="btn tr-ar" download
+            >تحميل السيرة الذاتية</a
+          >
+          <a
+            href="assets/cv/Ahmed3tmanCV.pdf"
+            class="btn tr-en"
+            download
+            style="display: none"
+            >Download CV</a
+          >
+          <button id="lang-toggle" class="btn">AR</button>
+          <button id="theme-toggle" class="btn">🌙</button>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
       </div>
     </header>
 
-    <!-- قسم التعريف والشخصية -->
+    <!-- Profile Section -->
     <section class="profile-section" id="about">
       <div class="container profile-content">
         <div class="profile-img" data-aos="zoom-in">
@@ -177,7 +176,7 @@
       </div>
     </section>
 
-    <!-- قسم التعليم -->
+    <!-- Education Section -->
     <section class="section" id="education">
       <div class="container" data-aos="fade-up">
         <h2>
@@ -239,7 +238,7 @@
       </div>
     </section>
 
-    <!-- قسم الخبرات العملية -->
+    <!-- Experience Section -->
     <section class="section" id="experience">
       <div class="container" data-aos="fade-up">
         <h2>
@@ -247,7 +246,7 @@
           <span class="tr-en" style="display: none">Experience</span>
         </h2>
         <div class="experience-list">
-          <div class="exp-card" data-aos="fade-right" data-aos-delay="0">
+          <div class="card exp-card" data-aos="fade-right" data-aos-delay="0">
             <h3>
               <span class="tr-ar"
                 >أخصائي أجهزة طبية <span>(2021 – الآن)</span></span
@@ -270,7 +269,7 @@
               </li>
             </ul>
           </div>
-          <div class="exp-card" data-aos="fade-right" data-aos-delay="100">
+          <div class="card exp-card" data-aos="fade-right" data-aos-delay="100">
             <h3>
               <span class="tr-ar"
                 >مطور Flutter <span>(يناير 2024 – الآن)</span></span
@@ -299,7 +298,7 @@
               </li>
             </ul>
           </div>
-          <div class="exp-card" data-aos="fade-right" data-aos-delay="200">
+          <div class="card exp-card" data-aos="fade-right" data-aos-delay="200">
             <h3>
               <span class="tr-ar"
                 >صانع محتوى <span>(يناير 2025 – الآن)</span></span
@@ -334,7 +333,7 @@
       </div>
     </section>
 
-    <!-- قسم المهارات -->
+    <!-- Skills Section -->
     <section class="section" id="skills">
       <div class="container" data-aos="fade-up">
         <h2>
@@ -342,7 +341,7 @@
           <span class="tr-en" style="display: none">Technical Skills</span>
         </h2>
         <div class="skills-grid">
-          <div class="skill-group">
+          <div class="card skill-group">
             <h3>
               <span class="tr-ar">البرمجة والتطوير</span>
               <span class="tr-en" style="display: none"
@@ -350,59 +349,55 @@
               >
             </h3>
             <ul>
-              <li class="tr-ar">C</li>
-              <li class="tr-ar">C++</li>
+              <li class="tr-ar">C, C++</li>
+              <li class="tr-en" style="display: none">C, C++</li>
               <li class="tr-ar">Dart & Flutter</li>
-              <li class="tr-ar">Python (خبرة أساسية)</li>
-              <li class="tr-ar">تطوير تطبيقات موبايل متعددة المنصات</li>
-              <li class="tr-ar">البرمجة الكائنية (OOP)</li>
-              <li class="tr-ar">هياكل البيانات والخوارزميات</li>
-              <li class="tr-ar">تصحيح الأخطاء وحل المشكلات</li>
-              <li class="tr-ar">Git & GitHub</li>
-
-              <li class="tr-en" style="display: none">C</li>
-              <li class="tr-en" style="display: none">C++</li>
               <li class="tr-en" style="display: none">Dart & Flutter</li>
+              <li class="tr-ar">Python (خبرة أساسية)</li>
               <li class="tr-en" style="display: none">
                 Python (Basic Experience)
               </li>
+              <li class="tr-ar">تطوير تطبيقات موبايل متعددة المنصات</li>
               <li class="tr-en" style="display: none">
                 Cross-platform Mobile App Development
               </li>
+              <li class="tr-ar">البرمجة الكائنية (OOP)</li>
               <li class="tr-en" style="display: none">
                 Object-Oriented Programming (OOP)
               </li>
+              <li class="tr-ar">هياكل البيانات والخوارزميات</li>
               <li class="tr-en" style="display: none">
                 Data Structures & Algorithms
               </li>
+              <li class="tr-ar">تصحيح الأخطاء وحل المشكلات</li>
               <li class="tr-en" style="display: none">
                 Problem-solving & Debugging
               </li>
+              <li class="tr-ar">Git & GitHub</li>
               <li class="tr-en" style="display: none">Git & GitHub</li>
             </ul>
           </div>
-          <div class="skill-group">
+          <div class="card skill-group">
             <h3>
               <span class="tr-ar">التصميم والإعلام</span>
               <span class="tr-en" style="display: none">Design & Media</span>
             </h3>
             <ul>
-              <li class="tr-ar">Adobe Photoshop</li>
-              <li class="tr-ar">Adobe Illustrator</li>
-              <li class="tr-ar">Adobe Premiere Pro</li>
-              <li class="tr-ar">Final Cut Pro</li>
+              <li class="tr-ar">Adobe Photoshop & Illustrator</li>
+              <li class="tr-en" style="display: none">
+                Adobe Photoshop & Illustrator
+              </li>
+              <li class="tr-ar">Adobe Premiere Pro & Final Cut Pro</li>
+              <li class="tr-en" style="display: none">
+                Adobe Premiere Pro & Final Cut Pro
+              </li>
               <li class="tr-ar">Microsoft Office</li>
-
-              <li class="tr-en" style="display: none">Adobe Photoshop</li>
-              <li class="tr-en" style="display: none">Adobe Illustrator</li>
-              <li class="tr-en" style="display: none">Adobe Premiere Pro</li>
-              <li class="tr-en" style="display: none">Final Cut Pro</li>
               <li class="tr-en" style="display: none">
                 Microsoft Office Suite
               </li>
             </ul>
           </div>
-          <div class="skill-group">
+          <div class="card skill-group">
             <h3>
               <span class="tr-ar">اللغات والتواصل</span>
               <span class="tr-en" style="display: none"
@@ -411,19 +406,18 @@
             </h3>
             <ul>
               <li class="tr-ar">الإنجليزية (جيد)</li>
-              <li class="tr-ar">العربية (اللغة الأم)</li>
-              <li class="tr-ar">مهارات تواصل قوية</li>
-              <li class="tr-ar">قيادة فريق</li>
-              <li class="tr-ar">العمل مع فريق</li>
-              <li class="tr-ar">العمل تحت ضغط</li>
-
               <li class="tr-en" style="display: none">English (Good)</li>
+              <li class="tr-ar">العربية (اللغة الأم)</li>
               <li class="tr-en" style="display: none">Arabic (Native)</li>
+              <li class="tr-ar">مهارات تواصل قوية</li>
               <li class="tr-en" style="display: none">
                 Strong Communication Skills
               </li>
-              <li class="tr-en" style="display: none">Team leadership</li>
-              <li class="tr-en" style="display: none">Teamwork</li>
+              <li class="tr-ar">قيادة فريق والعمل الجماعي</li>
+              <li class="tr-en" style="display: none">
+                Team leadership & Teamwork
+              </li>
+              <li class="tr-ar">العمل تحت ضغط</li>
               <li class="tr-en" style="display: none">Work under pressure</li>
             </ul>
           </div>
@@ -431,7 +425,7 @@
       </div>
     </section>
 
-    <!-- قسم الخدمات -->
+    <!-- Services Section -->
     <section class="section" id="services">
       <div class="container" data-aos="fade-up">
         <h2>
@@ -439,7 +433,7 @@
           <span class="tr-en" style="display: none">Services</span>
         </h2>
         <div class="services-grid">
-          <div class="service-card" data-aos="flip-left">
+          <div class="card service-card" data-aos="flip-left">
             <h3>
               <span class="tr-ar">تطوير تطبيق موبايل كامل</span>
               <span class="tr-en" style="display: none"
@@ -457,7 +451,11 @@
               >
             </p>
           </div>
-          <div class="service-card" data-aos="flip-left" data-aos-delay="100">
+          <div
+            class="card service-card"
+            data-aos="flip-left"
+            data-aos-delay="100"
+          >
             <h3>
               <span class="tr-ar">إضافة ميزات أو إصلاح أخطاء</span>
               <span class="tr-en" style="display: none"
@@ -475,7 +473,11 @@
               >
             </p>
           </div>
-          <div class="service-card" data-aos="flip-left" data-aos-delay="200">
+          <div
+            class="card service-card"
+            data-aos="flip-left"
+            data-aos-delay="200"
+          >
             <h3>
               <span class="tr-ar">تصميم واجهات UI/UX مخصصة</span>
               <span class="tr-en" style="display: none"
@@ -495,14 +497,13 @@
       </div>
     </section>
 
-    <!-- قسم المشاريع -->
+    <!-- Projects Section -->
     <section class="section" id="projects">
       <div class="container" data-aos="fade-up">
         <h2 class="tr-ar">المشاريع المميزة</h2>
         <h2 class="tr-en" style="display: none">Featured Projects</h2>
         <div class="projects-grid">
-          <!-- Crevel App -->
-          <div class="project-card" data-aos="fade-up">
+          <div class="card project-card" data-aos="fade-up">
             <img src="assets/images/Crevel.png" alt="Crevel App" />
             <div class="project-info">
               <h3 class="tr-ar">Crevel App</h3>
@@ -513,11 +514,19 @@
               <p class="tr-en" style="display: none">
                 A Flutter-based mobile app for a digital services company.
               </p>
-              <a href="#" class="project-link">GitHub</a>
+              <a
+                href="https://github.com/ahmed3tman"
+                target="_blank"
+                class="project-link"
+                >GitHub</a
+              >
             </div>
           </div>
-          <!-- Laptop Store App -->
-          <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="card project-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <img src="assets/images/LaptopStore.png" alt="Laptop Store App" />
             <div class="project-info">
               <h3 class="tr-ar">Laptop Store App</h3>
@@ -528,11 +537,19 @@
               <p class="tr-en" style="display: none">
                 Modern e-commerce UI for showcasing laptops.
               </p>
-              <a href="#" class="project-link">GitHub</a>
+              <a
+                href="https://github.com/ahmed3tman"
+                target="_blank"
+                class="project-link"
+                >GitHub</a
+              >
             </div>
           </div>
-          <!-- Azkar App -->
-          <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div
+            class="card project-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <img src="assets/images/Flutter.png" alt="Azkar App" />
             <div class="project-info">
               <h3 class="tr-ar">Azkar App</h3>
@@ -543,8 +560,11 @@
               </p>
             </div>
           </div>
-          <!-- Nota App -->
-          <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <div
+            class="card project-card"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <img src="assets/images/Flutter.png" alt="Nota App" />
             <div class="project-info">
               <h3 class="tr-ar">Nota App</h3>
@@ -557,8 +577,11 @@
               </p>
             </div>
           </div>
-          <!-- Group Chat App -->
-          <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+          <div
+            class="card project-card"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <img src="assets/images/Flutter.png" alt="Group Chat App" />
             <div class="project-info">
               <h3 class="tr-ar">Group Chat App</h3>
@@ -569,8 +592,11 @@
               </p>
             </div>
           </div>
-          <!-- Food & Plant Apps -->
-          <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+          <div
+            class="card project-card"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
             <img src="assets/images/Flutter.png" alt="Food & Plant Apps" />
             <div class="project-info">
               <h3 class="tr-ar">Food & Plant Apps (UI Only)</h3>
@@ -585,8 +611,11 @@
               </p>
             </div>
           </div>
-          <!-- Doctor Hunt -->
-          <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+          <div
+            class="card project-card"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
             <img src="assets/images/Dr Hunt.png" alt="Doctor Hunt" />
             <div class="project-info">
               <h3 class="tr-ar">Doctor Hunt</h3>
@@ -601,8 +630,11 @@
               </p>
             </div>
           </div>
-          <!-- مشروع التخرج -->
-          <div class="project-card" data-aos="fade-up" data-aos-delay="700">
+          <div
+            class="card project-card"
+            data-aos="fade-up"
+            data-aos-delay="700"
+          >
             <img src="assets/images/Flutter.png" alt="Graduation Project" />
             <div class="project-info">
               <h3 class="tr-ar">مشروع التخرج</h3>
@@ -617,89 +649,77 @@
       </div>
     </section>
 
-    <!-- قسم الفن -->
+    <!-- Art Section -->
     <section class="section art-section" data-aos="fade-up" id="art">
       <div class="container">
         <h2 class="tr-ar">قسم الفن</h2>
         <h2 class="tr-en" style="display: none">Art Gallery</h2>
         <div class="art-gallery">
           <div class="art-grid">
-            <img src="assets/art/art1.PNG" alt="رسم فني 1" class="tr-ar" />
             <img
               src="assets/art/art1.PNG"
               alt="Art Drawing 1"
-              class="tr-en"
-              style="display: none"
+              data-aos="zoom-in"
             />
-            <img src="assets/art/art2.PNG" alt="رسم فني 2" class="tr-ar" />
             <img
               src="assets/art/art2.PNG"
               alt="Art Drawing 2"
-              class="tr-en"
-              style="display: none"
+              data-aos="zoom-in"
+              data-aos-delay="100"
             />
-            <img src="assets/art/art3.JPG" alt="رسم فني 3" class="tr-ar" />
             <img
               src="assets/art/art3.JPG"
               alt="Art Drawing 3"
-              class="tr-en"
-              style="display: none"
+              data-aos="zoom-in"
+              data-aos-delay="200"
             />
-            <img src="assets/art/art4.JPG" alt="رسم فني 4" class="tr-ar" />
             <img
               src="assets/art/art4.JPG"
               alt="Art Drawing 4"
-              class="tr-en"
-              style="display: none"
+              data-aos="zoom-in"
+              data-aos-delay="300"
             />
-            <img src="assets/art/art5.JPG" alt="رسم فني 5" class="tr-ar" />
             <img
               src="assets/art/art5.JPG"
               alt="Art Drawing 5"
-              class="tr-en"
-              style="display: none"
+              data-aos="zoom-in"
+              data-aos-delay="400"
             />
-            <img src="assets/art/art6.jpg" alt="رسم فني 6" class="tr-ar" />
             <img
               src="assets/art/art6.jpg"
               alt="Art Drawing 6"
-              class="tr-en"
-              style="display: none"
+              data-aos="zoom-in"
+              data-aos-delay="500"
             />
-            <img src="assets/art/art7.jpg" alt="رسم فني 7" class="tr-ar" />
             <img
               src="assets/art/art7.jpg"
               alt="Art Drawing 7"
-              class="tr-en"
-              style="display: none"
+              data-aos="zoom-in"
             />
-            <img src="assets/art/art8.jpg" alt="رسم فني 8" class="tr-ar" />
             <img
               src="assets/art/art8.jpg"
               alt="Art Drawing 8"
-              class="tr-en"
-              style="display: none"
+              data-aos="zoom-in"
+              data-aos-delay="100"
             />
-            <img src="assets/art/art9.JPG" alt="رسم فني 9" class="tr-ar" />
             <img
               src="assets/art/art9.JPG"
               alt="Art Drawing 9"
-              class="tr-en"
-              style="display: none"
+              data-aos="zoom-in"
+              data-aos-delay="200"
             />
-            <img src="assets/art/art10.jpg" alt="رسم فني 10" class="tr-ar" />
             <img
               src="assets/art/art10.jpg"
               alt="Art Drawing 10"
-              class="tr-en"
-              style="display: none"
+              data-aos="zoom-in"
+              data-aos-delay="300"
             />
           </div>
           <div class="art-link">
             <a href="https://instagram.com/3tmau" target="_blank" class="btn">
-              <span class="tr-ar">شاهد المزيد على إنستجرام الرسم</span>
+              <span class="tr-ar">شاهد المزيد على إنستجرام</span>
               <span class="tr-en" style="display: none"
-                >See more on my art Instagram</span
+                >See More on Instagram</span
               >
             </a>
           </div>
@@ -707,7 +727,7 @@
       </div>
     </section>
 
-    <!-- قسم التواصل -->
+    <!-- Contact Section -->
     <section class="section contact-section" id="contact">
       <div class="container" data-aos="fade-up">
         <h2>
@@ -737,7 +757,7 @@
       </div>
     </section>
 
-    <!-- نهاية الصفحة -->
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <p>
@@ -749,45 +769,105 @@
       </div>
     </footer>
 
-    <!-- مكتبة AOS للأنيميشن -->
+    <!-- AOS Animation Library -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
+      // Initialize AOS
       AOS.init({
-        duration: 900,
+        duration: 800,
         once: true,
-        offset: 60,
+        offset: 50,
       });
-      // تبديل الوضع الليلي والفاتح
+
+      // DOM Elements
       const themeBtn = document.getElementById("theme-toggle");
-      themeBtn.onclick = function () {
-        document.body.classList.toggle("dark-mode");
-        themeBtn.textContent = document.body.classList.contains("dark-mode")
-          ? "☀️"
-          : "🌙";
-      };
-      // تبديل اللغة
       const langBtn = document.getElementById("lang-toggle");
-      langBtn.textContent = "AR"; // اللغة الافتراضية إنجليزية
-      document.documentElement.lang = "en";
-      document.body.dir = "ltr";
-      document
-        .querySelectorAll(".tr-ar")
-        .forEach((e) => (e.style.display = "none"));
-      document
-        .querySelectorAll(".tr-en")
-        .forEach((e) => (e.style.display = ""));
-      langBtn.onclick = function () {
-        const isEn = document.documentElement.lang === "en";
-        document.documentElement.lang = isEn ? "ar" : "en";
-        document.body.dir = isEn ? "rtl" : "ltr";
-        document
-          .querySelectorAll(".tr-ar")
-          .forEach((e) => (e.style.display = isEn ? "" : "none"));
-        document
-          .querySelectorAll(".tr-en")
-          .forEach((e) => (e.style.display = isEn ? "none" : ""));
-        langBtn.textContent = isEn ? "EN" : "AR";
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const nav = document.getElementById("main-nav");
+      const navOverlay = document.getElementById("nav-overlay");
+      const translatableElements = {
+        ar: document.querySelectorAll(".tr-ar"),
+        en: document.querySelectorAll(".tr-en"),
       };
+
+      // -- THEME TOGGLE --
+      const setInitialTheme = () => {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.body.classList.add("dark-mode");
+          themeBtn.textContent = "☀️";
+        } else {
+          document.body.classList.remove("dark-mode");
+          themeBtn.textContent = "🌙";
+        }
+      };
+
+      themeBtn.onclick = () => {
+        const isDark = document.body.classList.toggle("dark-mode");
+        themeBtn.textContent = isDark ? "☀️" : "🌙";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      };
+
+      // -- LANGUAGE TOGGLE --
+      const setLanguage = (lang) => {
+        document.documentElement.lang = lang;
+        document.body.dir = lang === "ar" ? "rtl" : "ltr";
+        langBtn.textContent = lang === "ar" ? "EN" : "AR";
+
+        translatableElements.ar.forEach((e) => {
+          e.style.display = lang === "ar" ? "" : "none";
+        });
+        translatableElements.en.forEach((e) => {
+          e.style.display = lang === "en" ? "" : "none";
+        });
+
+        localStorage.setItem("language", lang);
+        // Adjust nav transform for RTL
+        if (nav.classList.contains("active")) {
+          nav.style.transform = `translateX(${lang === "ar" ? "-100%" : "100%"})`;
+        } else {
+          nav.style.transform = "";
+        }
+      };
+
+      langBtn.onclick = () => {
+        const currentLang = document.documentElement.lang;
+        setLanguage(currentLang === "en" ? "ar" : "en");
+      };
+
+      const setInitialLanguage = () => {
+        const savedLang = localStorage.getItem("language");
+        setLanguage(savedLang || "en");
+      };
+
+      // -- MOBILE MENU --
+      const toggleMenu = () => {
+        const isActive = nav.classList.toggle("active");
+        navOverlay.classList.toggle("active");
+        mobileMenuBtn.textContent = isActive ? "✕" : "☰";
+        document.body.style.overflow = isActive ? "hidden" : "";
+      };
+
+      mobileMenuBtn.onclick = toggleMenu;
+      navOverlay.onclick = toggleMenu;
+
+      // Close mobile menu when a link is clicked
+      nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (nav.classList.contains("active")) {
+            toggleMenu();
+          }
+        });
+      });
+
+      // -- INITIALIZE --
+      document.addEventListener("DOMContentLoaded", () => {
+        setInitialTheme();
+        setInitialLanguage();
+      });
     </script>
   </body>
 </html>
