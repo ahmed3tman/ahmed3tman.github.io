@@ -753,6 +753,10 @@
             <span class="tr-ar">اتصل بي</span>
             <span class="tr-en" style="display: none">Call Me</span>
           </a>
+          <a href="assets/cv/Ahmed3tmanCV.pdf" class="btn" download>
+            <span class="tr-ar">تحميل السيرة الذاتية</span>
+            <span class="tr-en" style="display: none">Download CV</span>
+          </a>
         </div>
       </div>
     </section>
@@ -825,12 +829,6 @@
         });
 
         localStorage.setItem("language", lang);
-        // Adjust nav transform for RTL
-        if (nav.classList.contains("active")) {
-          nav.style.transform = `translateX(${lang === "ar" ? "-100%" : "100%"})`;
-        } else {
-          nav.style.transform = "";
-        }
       };
 
       langBtn.onclick = () => {

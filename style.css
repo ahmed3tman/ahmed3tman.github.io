@@ -515,6 +515,10 @@ body[dir="ltr"] {
     transform: translateX(-100%);
   }
 
+  body[dir="ltr"] .nav {
+    transform: translateX(100%);
+  }
+
   .nav.active {
     transform: translateX(0);
   }
